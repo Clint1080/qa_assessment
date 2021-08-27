@@ -42,6 +42,17 @@ describe('Tic Tac Toe tests for days', () => {
 
     })
 
+    test('Is the computer making a move after our first human move', async () => {
+
+        // Used xpath here just to show that I can do because I'm the Sh*T!
+        let checkSquare1 = await (await driver).findElement(By.xpath('//*[@id="cell-1"]')).getAttribute('innerText')
+        
+        //The computer should have filled this square immediately after our first test so lets check it
+        expect(checkSquare1).toBe('O')
+        await driver.sleep(1000)
+        
+    })
+
     test('Clicking the upper right square adds an X to the square', async () => {
 
         let clickSquare2 = await (await driver).findElement(By.id('cell-2'));
@@ -50,6 +61,16 @@ describe('Tic Tac Toe tests for days', () => {
         expect(clickSquare2Value).toBe('X')
         await driver.sleep(1000);
 
+    })
+
+    test('Is the computer making a move after our second human move', async () => {
+
+        let checkSquare3 = await (await driver).findElement(By.xpath('//*[@id="cell-3"]')).getAttribute('innerText')
+        
+        // This test is failing becuase the value is case sensitive. We are getting lowercase but shoulb be getting uppercase "O"
+        expect(checkSquare3).toBe('O')
+        await driver.sleep(1000)
+        
     })
     
     test('Clicking the lower right square adds an X to the square', async () => {
@@ -61,4 +82,14 @@ describe('Tic Tac Toe tests for days', () => {
         await driver.sleep(1000);
 
     })
+
+    test('Is the computer making a move after our third move', async () => {
+        
+        let checkSquare4 = await (await driver).findElement(By.xpath('//*[@id="cell-4"]')).getAttribute('innerText')
+
+        // This test is failing becuase something is wrong with the logic of the Tic Tac Toe game not entering a value after it has made two moves
+        expect(checkSquare4).toBe('O')
+
+    })
+    
 })
