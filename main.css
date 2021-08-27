@@ -14,7 +14,7 @@ h2 {
 }
 
 #game-board {
-    border: solid 1px black;
+    border: solid 1px #444444;
     margin-bottom: 2em;
     max-width: 20em;
 }
